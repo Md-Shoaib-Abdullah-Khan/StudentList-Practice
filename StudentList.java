@@ -40,12 +40,11 @@ public class StudentList {
 						System.out.println(Constants.loading);			
 						String line = readFromFile();
 						String words[] = line.split(Constants.comma);	
-						boolean done = false;
 						String subString = args[0].substring(1);
-						for(int index = 0; index<words.length && !done; index++) {
+						for(int index = 0; index<words.length; index++) {
 								if(words[index].equals(subString)) {
 										System.out.println(Constants.word_found);
-										done=true;
+										break;
 								}
 						}
 						System.out.println(Constants.data_loaded);				
