@@ -4,12 +4,14 @@ import java.util.*;
 public class StudentList {
 		public static void main(String[] args) {
 
+				//Check no of arguement
 				if(args.length != 1){
 					System.out.println(Constants.improper_arguement);
 					System.exit(1);
 				}
 		
-				//Check arguments
+				//Check each arguments
+				//Printing all the students name
 				if(args[0].equals(Constants.arguement_a)) {
 						System.out.println(Constants.loading);		
 						String line = readFromFile(); 
@@ -19,6 +21,8 @@ public class StudentList {
 						}  
 						System.out.println(Constants.data_loaded);
 				}
+
+				//Print randomly picked student name
 				else if(args[0].equals(Constants.arguement_r)) {
 						System.out.println(Constants.loading);			
 						String line = readFromFile();
@@ -28,6 +32,8 @@ public class StudentList {
 						System.out.println(words[index].trim());
 						System.out.println(Constants.data_loaded);			
 				}
+
+				//Adding a student name to the text file
 				else if(args[0].contains(Constants.arguement_plus)){
 						System.out.println(Constants.loading);			
 						String subString = args[0].substring(1);
@@ -36,6 +42,8 @@ public class StudentList {
 						writeToFile(subString, currentDate);								
 						System.out.println(Constants.data_loaded);	
 				}
+
+				//Searching a student name in the file
 				else if(args[0].contains(Constants.arguement_ques)) {
 						System.out.println(Constants.loading);			
 						String line = readFromFile();
@@ -49,6 +57,8 @@ public class StudentList {
 						}
 						System.out.println(Constants.data_loaded);				
 				}
+
+				//Counting the number of the names of the students in the file
 				else if(args[0].contains(Constants.arguement_c)) {
 						System.out.println(Constants.loading);			
 						String line = readFromFile();
@@ -56,11 +66,15 @@ public class StudentList {
 						System.out.println(studentNames.length + Constants.words_found); 
 						System.out.println(Constants.data_loaded);				
 				}
+
+				//Handling case when user enters invalid arguement
 				else{
 						System.out.println(Constants.error_message_for_invalid_arguement);
 						System.exit(1);
 				}
 		}
+
+		//Read from file
 		public static String readFromFile(){
 				try {
 					BufferedReader bufferedReader = new BufferedReader(
@@ -73,6 +87,8 @@ public class StudentList {
 				return Constants.blank;
 				
 		}
+
+		//Write in the file
 		public static void writeToFile(String subString, String currentDate){
 				try {
 						BufferedWriter bufferedWriter = new BufferedWriter(
