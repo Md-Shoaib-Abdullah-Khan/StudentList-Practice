@@ -16,6 +16,7 @@ public class Constants {
     public static String words_found = " word(s) found ";
     public static String space = " ";
     public static String blank = "";
+    public static String error_message_for_invalid_arguement = "Invalid arguement!";
 
     
 }

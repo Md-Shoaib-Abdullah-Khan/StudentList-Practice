@@ -56,6 +56,10 @@ public class StudentList {
 						System.out.println(studentNames.length + Constants.words_found); 
 						System.out.println(Constants.data_loaded);				
 				}
+				else{
+						System.out.println(Constants.error_message_for_invalid_arguement);
+						System.exit(1);
+				}
 		}
 		public static String readFromFile(){
 				try {
