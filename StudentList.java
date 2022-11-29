@@ -30,19 +30,19 @@ public class StudentList {
 
 						System.out.println(Constants.data_loaded);			
 				}
-				else if(args[0].contains("+")){
+				else if(args[0].contains(Constants.arguement_plus)){
 						System.out.println(Constants.loading);			
 						
 								String subString = args[0].substring(1);
 	        					Date date = new Date();
-	        					String dateFprmatString = "yyyy-mm-dd hh:mm:ss a";
+	        					String dateFprmatString = Constants.date_format;
 	        					DateFormat dateFormat = new SimpleDateFormat(dateFprmatString);
 	        					String currentDate= dateFormat.format(date);
 								writeToFile(subString, currentDate);
 															
 						System.out.println(Constants.data_loaded);	
 				}
-				else if(args[0].contains("?")) {
+				else if(args[0].contains(Constants.arguement_ques)) {
 						System.out.println(Constants.loading);			
 						String line = readFromFile();
 						String words[] = line.split(Constants.comma);	
@@ -50,13 +50,13 @@ public class StudentList {
 						String subString = args[0].substring(1);
 						for(int index = 0; index<words.length && !done; index++) {
 								if(words[index].equals(subString)) {
-										System.out.println("We found it!");
+										System.out.println(Constants.word_found);
 										done=true;
 								}
 						}
 						System.out.println(Constants.data_loaded);				
 				}
-				else if(args[0].contains("c")) {
+				else if(args[0].contains(Constants.arguement_c)) {
 						System.out.println(Constants.loading);			
 						String line = readFromFile();
 						char letters[] = line.toCharArray();			
@@ -72,7 +72,7 @@ public class StudentList {
 										}			
 								}
 						}
-						System.out.println(count +" word(s) found "); 
+						System.out.println(count + Constants.words_found); 
 						System.out.println(Constants.data_loaded);				
 				}
 		}
@@ -80,7 +80,7 @@ public class StudentList {
 				try {
 					BufferedReader bufferedReader = new BufferedReader(
 							new InputStreamReader(
-									new FileInputStream("students.txt"))); 
+									new FileInputStream(Constants.filename))); 
 					return bufferedReader.readLine();
 				}catch (Exception exception){
 					
@@ -91,8 +91,8 @@ public class StudentList {
 		public static void writeToFile(String subString, String currentDate){
 				try {
 						BufferedWriter bufferedWriter = new BufferedWriter(
-								new FileWriter("students.txt", true));
-						bufferedWriter.write(", "+subString+"\nList last updated on "+currentDate);
+								new FileWriter(Constants.filename, true));
+						bufferedWriter.write(Constants.comma_space + subString + Constants.list_Update + currentDate);
 						bufferedWriter.close();
 				} catch (Exception exception){
 
