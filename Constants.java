@@ -14,6 +14,8 @@ public class Constants {
     public static String list_Update = "\nList last updated on ";
     public static String comma_space = ", ";
     public static String words_found = " word(s) found ";
+    public static String space = " ";
+    public static String blank = "";
 
     
 }

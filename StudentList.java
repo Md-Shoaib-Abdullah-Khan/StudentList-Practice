@@ -52,21 +52,8 @@ public class StudentList {
 				else if(args[0].contains(Constants.arguement_c)) {
 						System.out.println(Constants.loading);			
 						String line = readFromFile();
-						char letters[] = line.toCharArray();			
-						boolean in_word = false;
-						int count=0;
-						for(char letter:letters) {
-								if(letter ==' ') {
-										if (!in_word) {	
-												count++; 
-												in_word =true;	
-										}
-										else { 
-												in_word=false;
-										}			
-								}
-						}
-						System.out.println(count + Constants.words_found); 
+						String studentNames[] = line.split(Constants.space);			
+						System.out.println(studentNames.length + Constants.words_found); 
 						System.out.println(Constants.data_loaded);				
 				}
 		}
@@ -79,7 +66,7 @@ public class StudentList {
 				}catch (Exception exception){
 					
 				}
-				return "";
+				return Constants.blank;
 				
 		}
 		public static void writeToFile(String subString, String currentDate){
