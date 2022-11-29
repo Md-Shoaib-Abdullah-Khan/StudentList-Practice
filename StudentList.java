@@ -5,33 +5,33 @@ public class StudentList {
 		public static void main(String[] args) {
 
 				if(args.length != 1){
-					System.out.println("Please input proper arguement!");
+					System.out.println(Constants.improper_arguement);
 					System.exit(1);
 				}
 		
 				//Check arguments
-				if(args[0].equals("a")) {
-						System.out.println("Loading data ...");		
+				if(args[0].equals(Constants.arguement_a)) {
+						System.out.println(Constants.loading);		
 						
 								String line = readFromFile(); 
-								String words[] = line.split(",");			
+								String words[] = line.split(Constants.comma);			
 								for(String word : words) {
 										 System.out.println(word.trim());
 								}  
-						System.out.println("Data Loaded.");
+						System.out.println(Constants.data_loaded);
 				}
-				else if(args[0].equals("r")) {
-						System.out.println("Loading data ...");			
+				else if(args[0].equals(Constants.arguement_r)) {
+						System.out.println(Constants.loading);			
 						String line = readFromFile();
-						String words[] = line.split(",");	
+						String words[] = line.split(Constants.comma);	
 						Random random = new Random();
 						int index = random.nextInt(words.length);
 						System.out.println(words[index].trim());
 
-						System.out.println("Data Loaded.");			
+						System.out.println(Constants.data_loaded);			
 				}
 				else if(args[0].contains("+")){
-						System.out.println("Loading data ...");			
+						System.out.println(Constants.loading);			
 						
 								String subString = args[0].substring(1);
 	        					Date date = new Date();
@@ -40,12 +40,12 @@ public class StudentList {
 	        					String currentDate= dateFormat.format(date);
 								writeToFile(subString, currentDate);
 															
-						System.out.println("Data Loaded.");	
+						System.out.println(Constants.data_loaded);	
 				}
 				else if(args[0].contains("?")) {
-						System.out.println("Loading data ...");			
+						System.out.println(Constants.loading);			
 						String line = readFromFile();
-						String words[] = line.split(",");	
+						String words[] = line.split(Constants.comma);	
 						boolean done = false;
 						String subString = args[0].substring(1);
 						for(int index = 0; index<words.length && !done; index++) {
@@ -54,10 +54,10 @@ public class StudentList {
 										done=true;
 								}
 						}
-						System.out.println("Data Loaded.");				
+						System.out.println(Constants.data_loaded);				
 				}
 				else if(args[0].contains("c")) {
-						System.out.println("Loading data ...");			
+						System.out.println(Constants.loading);			
 						String line = readFromFile();
 						char letters[] = line.toCharArray();			
 						boolean in_word = false;
@@ -73,7 +73,7 @@ public class StudentList {
 								}
 						}
 						System.out.println(count +" word(s) found "); 
-						System.out.println("Data Loaded.");				
+						System.out.println(Constants.data_loaded);				
 				}
 		}
 		public static String readFromFile(){
