@@ -12,12 +12,11 @@ public class StudentList {
 				//Check arguments
 				if(args[0].equals(Constants.arguement_a)) {
 						System.out.println(Constants.loading);		
-						
-								String line = readFromFile(); 
-								String words[] = line.split(Constants.comma);			
-								for(String word : words) {
-										 System.out.println(word.trim());
-								}  
+						String line = readFromFile(); 
+						String words[] = line.split(Constants.comma);			
+						for(String word : words) {
+								 System.out.println(word.trim());
+						}  
 						System.out.println(Constants.data_loaded);
 				}
 				else if(args[0].equals(Constants.arguement_r)) {
@@ -27,19 +26,14 @@ public class StudentList {
 						Random random = new Random();
 						int index = random.nextInt(words.length);
 						System.out.println(words[index].trim());
-
 						System.out.println(Constants.data_loaded);			
 				}
 				else if(args[0].contains(Constants.arguement_plus)){
 						System.out.println(Constants.loading);			
-						
-								String subString = args[0].substring(1);
-	        					Date date = new Date();
-	        					String dateFprmatString = Constants.date_format;
-	        					DateFormat dateFormat = new SimpleDateFormat(dateFprmatString);
-	        					String currentDate= dateFormat.format(date);
-								writeToFile(subString, currentDate);
-															
+						String subString = args[0].substring(1);
+	        			DateFormat dateFormat = new SimpleDateFormat(Constants.date_format);
+	        			String currentDate= dateFormat.format(new Date());
+						writeToFile(subString, currentDate);								
 						System.out.println(Constants.data_loaded);	
 				}
 				else if(args[0].contains(Constants.arguement_ques)) {
@@ -65,7 +59,8 @@ public class StudentList {
 						for(char letter:letters) {
 								if(letter ==' ') {
 										if (!in_word) {	
-												count++; in_word =true;	
+												count++; 
+												in_word =true;	
 										}
 										else { 
 												in_word=false;
